@@ -1,0 +1,53 @@
+<!--pages/chooseicon/chooseicon.wxml-->
+<scroll-view class="main-container">
+  <view class="sub-container">
+    <view class='sub-spacer'></view><!--标签提示与页面上边间距-->
+    <block wx:if="{{pageChooseType == 2}}"><!--选择标签提示信息-->
+      <text class="tag-prompt">选择标签，最多3个</text>
+      <view class='sub-spacer'></view><!--标签提示下边距-->
+    </block>
+
+    <view class="select-box">
+      <view class="list-area-row">
+        <block wx:if="{{pageChooseType == 2}}"><!--标签区-->
+          <view class="list-area-column">
+            <view class="list-area-row" wx:for="{{infoList}}" wx:if="{{index%3 == 0}}">
+              <button class="one-tag"
+                  id="{{item.ID}}"
+                  bindtap="bindItemTap"
+                  wx:for="{{infoList}}"
+                  wx:for-index="j"
+                  wx:if="{{j>= index && j < (index + 3)}}"
+                  style="margin-right: {{tagBtnMarginRight}}px; background-color: {{tagBgColorList[j]}}; color: {{tagTxtColorList[j]}}; "
+              >
+              {{item.name}}
+              </button>
+            </view>
+            <block wx:if="{{config.userTagEnabled}}">
+              <!--<view class='sub-spacer'></view><!--用户标签提示与系统标签间距-->
+              <text class="tag-prompt">{{config.userTagPrompt}}</text><!--用户标签提示-->
+            </block>
+          </view><!--<view class="list-area-column">-->
+        </block>
+        <block wx:else><!--天气/心情图标区-->
+          <view class="list-area-column">
+            <view class="list-area-row" wx:for="{{infoList}}" wx:if="{{index%6 == 0}}">
+              <image class="image-icon"
+                  wx:for="{{infoList}}"
+                  wx:for-index="j"
+                  wx:if="{{j>=index && j < (index+6)}}"
+                  src="{{urlPrefix}}{{item.url}}"
+                  id="{{item.ID}}"
+                  bindtap="bindItemTap"
+                  style='background-color: {{item.ID == curId? iconSelColor: iconUnSelColor }};width:{{iconSizeXY}}px; height:{{iconSizeXY}}px; background-size: {{iconSizeXY}}px, {{iconSizeXY}};'
+                >
+              </image>
+            </view><!--<view class="list-area-row" -->
+          </view><!--<view class="list-area-column">-->
+        </block>
+      </view><!--<view class="list-area-row">-->
+      <view class='sub-spacer'></view><!--标签按钮下边距-->
+    </view><!--<view class="select-box">-->
+  </view><!--<view class="sub-container">-->
+  <button class="btn-save"  bindtap="bindReturnTap">完成</button>
+</scroll-view><!--<scroll-view class="main-container">-->

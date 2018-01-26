@@ -1,0 +1,118 @@
+<!--index.wxml-->
+<scroll-view class="main-container" scroll-y lower-threshold='1' enable-back-to-top="true" bindscrolltolower="bindScrollToLower">
+  <view class="sub-container">
+  <!--
+    <view class="userinfo">
+      <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+      <block wx:else>
+        <image wx:if="{{userInfo.avatarUrl}}" bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+        <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+      </block>
+    </view>
+  -->
+    <view class="usernote-container">
+      <block wx:if="{{hasUserNote}}">
+        <view class="one-note-container">
+          <view class="scroll-container"><!-- 记录集合开始 -->
+<!--<view style='background-color: #fff; height: 100%;'><!-- 记录集合开始 -->
+<!--<view class="sub-spacer-16px"></view>-->
+<!--#########################################################################################-->
+<!-- 一条记录开始 -->
+      <!--
+      <view class="one-note-year-title">
+        <text>{{userNoteYear}}</text>
+      </view>
+      -->
+            <!--<view class="one-note-content-area" wx:for="{{noteList}}">-->
+            <view class="one-note-content" wx:for="{{noteList}}">
+              <view class="one-note-content-area">
+                <view class="sub-spacer-16px"></view>
+                <view class="one-note-date-weather-mood-container">
+                  <text class="one-note-date">{{noteDate[index]}}</text>
+                  <text class="one-note-weekday">{{noteList[index].weekday}}</text>
+                  <image class="one-note-weather-icon" src="{{noteList[index].weather}}"></image>
+                  <image class="one-note-mood-icon" src="{{noteList[index].mood}}"></image>
+                </view>
+
+                <view class="sub-spacer-txt-to-txt"></view> <!--日期与内容间距-->
+
+                <!--<view>-->
+                  <text class="one-note-text-area">{{noteList[index].note}}</text>
+                <!--</view>-->
+
+                <view class="sub-spacer-txt-to-img"></view><!--内容与图片间距-->
+
+                <!-- 开始图片循环  -->
+                <view class="one-note-image-container">
+                  <view class="one-note-image-row" wx:for="{{noteList[index].imageIdList.thumbnail}}"  wx:for-index="i" wx:if="{{i%3 == 0}}">
+                    <image class="one-note-image-thumbnail"
+                        bindtap="bindImageTap"
+                        id="{{j}}"
+                        data-noteId="{{index}}"
+                        wx:for="{{noteList[index].imageIdList.thumbnail}}"
+                        wx:for-index="j" 
+                        wx:if="{{j >= i && j < (i+3)}}" src="{{item}}" mode="aspectFill"
+                        style='width:{{imgSizeXY}}px; height:{{imgSizeXY}}px;'
+                        >
+                    </image>
+                  </view>
+                </view>
+                <!-- 结束图片循环 -->
+
+                <view class="sub-spacer-txt-to-img"></view><!--图片与时间间距-->
+
+                <view class="one-note-time-tag-container"><!--时间和标签-->
+                  <text class="one-note-time">{{noteTime[index]}}</text><!--时间-->
+                  <block wx:if="{{noteList[index].tag.length}}">
+                    <view class="one-note-tag-icon"></view><!--标签图标-->
+                    <text class="one-note-tag">{{noteList[index].tag}}</text><!--标签文字-->
+                  </block>
+                </view>
+                
+                <view class="sub-spacer-txt-to-txt"></view><!--时间与位置间距-->
+
+                <block wx:if="{{noteList[index].location.length}}">
+                  <view class="one-note-location-and-button-container">
+                    <view class="one-note-location-icon"></view><!--位置图标-->
+                    <text class="one-note-location">{{noteList[index].location}}</text><!--位置文字-->
+                  </view>
+                  <view class="sub-spacer-txt-to-txt"></view><!--位置与删除按钮间距-->
+                </block>
+
+                <text class="one-note-remove-btn-below" bindtap='bindDelNote' id='{{noteList[index].ID}}'>删除</text>
+
+                <view class="sub-spacer-12px"></view><!--删除按钮与水平线间距-->
+
+              </view><!--<view class="one-note-content-area">-->
+              <view class="one-note-h-line"></view><!--水平线-->
+            </view><!--<view class="one-note-content" wx:for="{{noteList}}">-->
+        <!-- 一条记录结束 -->
+<!--#########################################################################################-->
+          </view><!-- 记录集合结束 -->
+        </view><!--<view class="one-note-container">-->
+      </block><!--wx:if="{{hasUserNote}}">-->
+      <block wx:else>
+        <view class="usernote-container-top"></view>
+        <view class="usernote-slogan-icon-container">
+          <image class="slogan-icon"></image>
+        </view>
+        <view class="usernote-container-slogan-container">
+          <view class="usernote-container-slogan-container-left"></view>
+          <!--<view class="usernote-slogan-icon-text-container" style='background-color: red'>-->
+            <text class="usernote-slogan">{{slogan}}</text>
+          <!--</view>-->
+          <view class="usernote-container-slogan-container-right"></view>
+        </view>
+      </block>
+    </view><!--<view class="usernote-container">-->
+
+    <view class="btn-plus-container">
+      <view class="btn-plus-container-left"></view>
+      <!--<navigator class="btn-plus" url="../compose/compose" style="left: {{btnPlusLeft}}px"></navigator>-->
+      <view class="btn-plus-container-right"></view>
+    </view>
+    <!--<navigator class="btn-pdf" url="../logs/logs" hidden='{{hidePdfBtn}}' ></navigator>-->
+    <view class="btn-pdf" hidden='{{hidePdfBtn}}' ></view>
+  </view><!--<view class="sub-container">-->
+</scroll-view><!--<view class="main-container">-->
+<navigator class="btn-plus" url="../compose/compose" style="left: {{btnPlusLeft}}px"></navigator>

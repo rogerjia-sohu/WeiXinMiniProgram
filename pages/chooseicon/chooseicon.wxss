@@ -1,0 +1,73 @@
+/* pages/chooseicon/chooseicon.wxss */
+
+.main-container {
+  width: 100%;
+  height: 100%;
+  background-color: #efeef4;
+  font-family: '宋体';
+  color: #a2a2a2;
+  font-size: 16px;
+}
+
+.sub-container {
+  width: 100%;
+  background-color: #fff;
+}
+
+.select-box {
+  margin-left: 16px;
+  width: 100%;
+  background-color: #fff;
+}
+
+.sub-spacer {
+  height: 10px;
+  width: 100%;
+  background-color: #fff;
+}
+
+.tag-prompt {
+  color: #9a9a9a;
+  font-size: 12px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.list-area-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.list-area-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.image-icon {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  background-size: 64px, 64px;
+  margin: 2px;
+}
+
+.selected-item {
+  display: flex;
+  flex-direction: row;
+}
+
+.one-tag {
+  display: flex;
+  flex-direction: column;
+  font-family: '宋体';
+  font-size: 12px;
+  width: 88px; /* 14px + fontsize.px/char x chars + 14px */
+  margin-left: 0px;
+  margin-bottom: 10px;
+}
+
+.btn-save {
+  margin-top: 30px;
+  font-size: 16px;
+}

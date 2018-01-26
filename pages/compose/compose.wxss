@@ -1,0 +1,228 @@
+.main-container {
+   width: 100%;
+   height: 100%;
+   background-color: #efeef4;
+}
+
+.sub-container {
+  width: 100%;
+  background-color: #fff;
+}
+
+.sub-spacer {
+  height: 10px;
+  width: 100%;
+  background-color: #fff;
+}
+
+.addnote {
+  margin-left: 16px;
+  width: 100% - 16px;
+  background-color: #fff;
+}
+
+
+.btn-add-photo{
+width: 90px;
+height: 90px;
+display: flex;
+
+background-size: 90px, 90px;
+align-items: center;
+justify-content: center;
+position: relative;
+}
+
+.btn-weather{
+display: flex;
+flex-direction: column;
+width: 20px;
+height: 20px;
+background-size: 20px, 20px;
+align-items: center;
+justify-content:center;
+position: relative;
+margin-top: 1px;
+}
+.btn-mood{
+width: 20px;
+height: 20px;
+display: flex;
+background-size: 20px, 20px;
+align-items: center;
+justify-content: center;
+position: relative;
+margin-top: 1px;
+}
+
+
+.btn-save {
+  font-size: 16px;
+  margin-top: 30px;
+  /*
+  margin-left: 16px;
+  margin-right: 16px;
+  */
+}
+
+.image-photoPreview{
+display: flex;
+position: relative;
+width: 80px;
+height: 80px;
+}
+
+.btn-tag{
+width: 20px;
+height: 20px;
+/*display: flex;*/
+
+background-size: 20px, 20px;
+/*
+align-items: center;
+justify-content: center;
+position: relative;
+*/
+margin-top: 1px;
+}
+
+.btn-pos{
+width: 20px;
+height: 20px;
+display: flex;
+
+background-size: 20px, 20px;
+align-items: center;
+justify-content: center;
+position: relative;
+margin-top: 1px;
+}
+
+.form-group{
+  display: flex;
+    /*float: right;  */
+  /*width: 100%;  */
+}  
+.section{  
+    /*clear: both;  */
+  width:100%;
+    /*margin-top: 10px;*/
+    font-size: 16px;
+}  
+.section-row{
+    /*clear: both;*/
+    width:100%;
+    display: flex;
+  flex-direction: row;
+  /*justify-content: flex-end;*/
+    font-size: 16px;
+    block-size: auto;
+}
+
+.section-row-bgimg {
+    /*clear: both;*/
+    width:100%;
+    display: flex;
+  flex-direction: row;
+  /*justify-content: flex-end;*/
+    font-size: 16px;
+  
+}
+
+.section-row-left{  
+  width: 75%;
+  opacity: 1.0;
+  display: flex;
+  flex-direction: row;
+}
+
+.input-text{
+  max-height: 85px;
+  font-size: 16px;
+  color: #a2a2a2;
+  width: 100%;
+  padding-right: 16px;
+}  
+.button{  
+  border: 1px solid #1aad19;  
+  border-radius: 2px;  
+}  
+.picker{  
+  padding: 13px;  
+  background-color: #FFFFFF;  
+}
+
+.one-note-h-line {
+  width: 100%;
+  height: 1px;
+  border-bottom:#dfdfdf 1px solid;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.one-note-h-line-location {
+  height: 10px;
+  width: 100%;
+}
+
+.one-note-h-line-no-margin {
+  width: 100%;
+  height: 1px;
+  border-bottom:#dfdfdf 1px solid;
+}
+
+.label-text{
+  font-size: 16px;
+  font-family: '宋体';
+  color: #000;
+  margin-left: 10px;
+}
+
+.gt-sign{
+  display: flex;
+  flex-direction: row;
+/*  align-items: center;
+  justify-content: center;
+*/
+  font-family: '宋体';
+  color: #a2a2a2;
+  font-size: 16px;
+  position: absolute;
+  visibility: hidden; /* 先不显示，下一版再解决 Android和iOS显示差异的问题 */
+}
+
+/*
+.gt-sign-right{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.gt-sign-spacer {
+   width: 70%;
+  font-size: 16px;
+  display: flex;
+  flex-direction: row;
+  writing-mode: vertical-lr;
+  block-size: inherit;
+}
+
+.gt-sign-container-right{
+
+  display: flex;
+  flex-direction: row;
+  display: flex;
+  justify-content: flex-end;
+  
+}
+
+.box {
+  display: flex;
+  justify-content: flex-end;
+  align-items:   
+}
+*/

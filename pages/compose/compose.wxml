@@ -1,0 +1,83 @@
+<scroll-view class="main-container" scroll-y>
+  <form bindsubmit="formSubmit" style='width: 100%;'>
+    <input type="hidden" hidden="true" disabled="true" name="openid" value="{{openId}}" />
+    <view class="sub-container">
+      <view class="addnote">
+        <view class="section">
+          <view class="sub-spacer"></view><!--输入框上边距-->
+
+          <view class='form-group'>
+            <textarea class="input-text" name="note" placeholder="{{note}}" auto-focus
+              bindblur="bindTextareaBlur"
+              bindinput='bindTextareaInput'
+            />
+          </view>
+        </view>
+
+        <view class="section"><!--上传图片预览区 最多9张，4,4,1排列-->
+          <view class='section-row' wx:for="{{photoFiles}}" wx:if="{{index%4 == 0}}">
+            <image class='image-photoPreview' wx:for="{{photoFiles}}" wx:for-index="j" 
+              wx:if="{{j >= index && j < (index+4)}}" src="{{item}}" mode="aspectFill" margin="2px">
+            </image>
+          </view>
+          <input type="hidden" hidden='true' wx:for="{{photoKeyArr}}" wx:for-index="i" name="hkey{{i}}" value="{{photoKeyArr[i]}}" />
+        </view>
+
+        <view class="section" wx:if="{{photoFiles.length < 9}}">
+          <view class="btn-add-photo" bindtap='addPhotos'></view><!--增加按钮-->
+        </view>
+
+        <view class="one-note-h-line"></view><!--按钮下方水平线-->
+
+        <view class="section-row"><!--天气-->
+          <view class="section-row" bindtap='chooseWeatherIcon' data-iconType="0">
+            <view class="btn-weather" style="background-image: url({{config.urlprefix}}{{config.weather[myFormData.weatherIdx].url}})"></view>
+            <view class="label-text">天气</view>
+            <text class="gt-sign" style="margin-left:{{gtSignLeftConst}}px" >></text>
+          </view>
+          <input type="hidden" hidden="true" disabled="true" name="weather" value="{{myFormData.weatherIdx}}" />
+        </view>
+
+        <view class="one-note-h-line"></view><!--天气下方水平线-->
+
+        <view class="section-row"><!--心情-->
+          <view class="section-row" bindtap='chooseMoodIcon'>
+            <view class="btn-mood" style="background-image: url({{config.urlprefix}}{{config.mood[myFormData.moodIdx].url}})"></view>
+            <view class="label-text">心情</view>
+            <text class="gt-sign" style="margin-left:{{gtSignLeftConst}}px" >></text>
+          </view>
+          <input type="hidden" hidden="true" disabled="true" name="mood" value="{{myFormData.moodIdx}}" />
+        </view>
+
+        <view class="one-note-h-line"></view><!--心情下方水平线-->
+
+        <view class="section-row"><!--标签-->
+          <view class="section-row" bindtap='chooseTag'>
+            <view class="btn-tag"></view>
+            <view class="label-text">{{myFormData.tag}}</view>
+            <text class="gt-sign" style="margin-left:{{gtSignLeftConst}}px" >></text>
+          </view>
+          <input type="hidden" hidden="true" disabled="true" name="tag" value="{{myFormData.tag}}" />
+        </view>
+
+        <view class="one-note-h-line"></view><!--标签下方水平线-->
+
+        <view class="section-row"><!--位置-->
+          <view class="btn-pos"></view>
+          <view class="label-text" bindtap='getPos'>{{mypos}}</view>
+          <text class="gt-sign" style="margin-left:{{gtSignLeftConst}}px">></text>
+          <input type="hidden" hidden="true" disabled="true" name="loc" value="{{mypos}}" />
+        </view>
+
+        <view class="one-note-h-line-location"></view><!--位置下方水平线-->
+
+      </view><!--<view class="addnote">-->
+    </view><!--<view class="sub-container">-->
+    <view class="one-note-h-line-no-margin"></view>
+    <button formType="submit" class="btn-save"
+      disabled="{{ (curNoteLen || curPhotoCnt)? okBtnEnabled : okBtnDisbled}}">
+      完成
+    </button>
+    <view class="sub-spacer" style='display: inherit;' ></view><!--按钮下边距便于上滑显示-->
+  </form>
+</scroll-view><!--<view class="main-container">-->
